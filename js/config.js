@@ -5,8 +5,8 @@
  * políticas de RLS definidas em supabase/schema.sql.
  */
 window.SUPABASE_CONFIG = {
-  url: 'https://SEU-PROJETO.supabase.co',
-  anonKey: 'SUA-ANON-KEY-PUBLICA',
+  url: 'https://fujtgffgvmlwhflhjsao.supabase.co',
+  anonKey: 'sb_publishable_D4ONOHGvgl4Wuam2wVf17Q_Tl4hgfs-',
 };
 
 // Nome do bucket de armazenamento usado para logo e imagens.
