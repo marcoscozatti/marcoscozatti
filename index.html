@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Marcos Cozatti</title>
+<meta name="description" content="Marcos Cozatti — professor, fotografia e imagens aéreas com drone." />
+<link rel="icon" id="favicon" href="data:," />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link id="google-fonts-link" rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" />
+
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <a href="#hero" class="brand" id="brandLink">
+      <img id="logoImg" src="" alt="Logo" hidden />
+      <span id="brandFallback"><span class="star">✦</span> Marcos Cozatti</span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#hero" data-i18n="nav_home">Início</a>
+      <a href="#areas" data-i18n="nav_offerings">O que eu faço</a>
+      <a href="videos.html" data-i18n="nav_videos">Vídeos</a>
+      <a href="blog.html" data-i18n="nav_blog">Blog</a>
+      <a href="#about" data-i18n="nav_about">Sobre</a>
+      <a href="#contact" data-i18n="nav_contact">Contato</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="lang-switch" id="langSwitch"></div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== HERO / SLIDES ===================== -->
+<section class="hero" id="hero">
+  <div class="hero-slides" id="heroSlides">
+    <!-- slides injetados via JS -->
+  </div>
+
+  <button class="hero-arrow prev" id="heroPrev" aria-label="Anterior">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <button class="hero-arrow next" id="heroNext" aria-label="Próximo">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <div class="hero-controls" id="heroDots"></div>
+
+  <div class="scroll-cue">Scroll</div>
+</section>
+
+<!-- ===================== ÁREAS (levam a páginas próprias) ===================== -->
+<section class="areas" id="areas">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Marcos Cozatti</span>
+      <h2 data-i18n="areas_title">O que eu faço</h2>
+      <p data-i18n="areas_subtitle">Conheça cada área e veja mais detalhes</p>
+    </div>
+    <div class="areas-grid" id="areasGrid"></div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT / TIMELINE ===================== -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-head on-dark">
+      <span class="eyebrow">Minha história</span>
+      <h2 data-i18n="about_title">Minha Trajetória</h2>
+      <p data-i18n="about_subtitle">Uma história construída passo a passo</p>
+    </div>
+    <div class="timeline" id="timeline"></div>
+  </div>
+</section>
+
+<!-- ===================== DEPOIMENTOS ===================== -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Depoimentos</span>
+      <h2 data-i18n="testimonials_title">Depoimentos</h2>
+      <p data-i18n="testimonials_subtitle">O que dizem alunos e clientes</p>
+    </div>
+    <div class="testimonials-grid" id="testimonialsGrid"></div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Contato</span>
+      <h2 data-i18n="contact_title">Vamos conversar?</h2>
+      <p data-i18n="contact_subtitle">Preencha o formulário e retorno em breve</p>
+    </div>
+
+    <div class="contact-grid">
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cf-name" data-i18n="contact_name">Nome</label>
+            <input type="text" id="cf-name" name="name" required />
+          </div>
+          <div class="form-field">
+            <label for="cf-email" data-i18n="contact_email">E-mail</label>
+            <input type="email" id="cf-email" name="email" required />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="cf-phone" data-i18n="contact_phone">Telefone</label>
+          <input type="tel" id="cf-phone" name="phone" />
+        </div>
+        <div class="form-field">
+          <label for="cf-message" data-i18n="contact_message">Mensagem</label>
+          <textarea id="cf-message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-accent" id="contactSubmit">
+          <span data-i18n="contact_send">Enviar mensagem</span>
+        </button>
+        <div class="form-status" id="contactStatus"></div>
+      </form>
+
+      <div class="contact-info">
+        <h2>Marcos Cozatti</h2>
+        <p>Professor, fotografia e imagens aéreas com drone.</p>
+
+        <div class="contact-detail" id="infoPhone" hidden>
+          <span class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div><strong data-i18n="footer_phone">Telefone</strong><span id="infoPhoneValue"></span></div>
+        </div>
+
+        <div class="contact-detail" id="infoEmail" hidden>
+          <span class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4z" stroke="none"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/></svg>
+          </span>
+          <div><strong data-i18n="footer_email">E-mail</strong><span id="infoEmailValue"></span></div>
+        </div>
+
+        <div class="contact-detail" id="infoAddress" hidden>
+          <span class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 1 1 18 0z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.8"/></svg>
+          </span>
+          <div><strong data-i18n="footer_address">Endereço</strong><span id="infoAddressValue"></span></div>
+        </div>
+
+        <div class="social-row" id="socialRow"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand" id="footerBrand">Marcos Cozatti</div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_phone">Telefone</h4>
+        <p id="footerPhone">—</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_email">E-mail</h4>
+        <p id="footerEmail">—</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_address">Endereço</h4>
+        <p id="footerAddress">—</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span id="footerCopy">&copy; 2026 Marcos Cozatti — <span data-i18n="footer_rights">Todos os direitos reservados.</span></span>
+      <a href="/admin/" style="opacity:.4">Admin</a>
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp-float" id="whatsappFloat" href="#" target="_blank" rel="noopener noreferrer" hidden aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.5 8.5 0 0 1-12.8 7.3L3 20l1.3-5a8.5 8.5 0 1 1 16.7-3.5z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 9.5c0 4 3 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+</a>
+
+<script type="module" src="js/config.js"></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

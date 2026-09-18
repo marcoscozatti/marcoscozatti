@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Blog — Marcos Cozatti</title>
+<meta name="description" content="Blog de Marcos Cozatti." />
+<link rel="icon" id="favicon" href="data:," />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link id="google-fonts-link" rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" />
+
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<header class="site-header on-light" id="siteHeader">
+  <div class="container">
+    <a href="index.html#hero" class="brand" id="brandLink">
+      <img id="logoImg" src="" alt="Logo" hidden />
+      <span id="brandFallback"><span class="star">✦</span> Marcos Cozatti</span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html#hero" data-i18n="nav_home">Início</a>
+      <a href="index.html#areas" data-i18n="nav_offerings">O que eu faço</a>
+      <a href="videos.html" data-i18n="nav_videos">Vídeos</a>
+      <a href="blog.html" class="is-active" data-i18n="nav_blog">Blog</a>
+      <a href="index.html#about" data-i18n="nav_about">Sobre</a>
+      <a href="index.html#contact" data-i18n="nav_contact">Contato</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="lang-switch" id="langSwitch"></div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="area-header">
+  <div class="container">
+    <span class="eyebrow">Marcos Cozatti</span>
+    <h1 data-i18n="blog_title">Blog</h1>
+    <p data-i18n="blog_subtitle">Textos, novidades e conteúdo</p>
+  </div>
+</section>
+
+<section class="area-content">
+  <div class="container">
+    <div class="blog-grid" id="blogGrid"></div>
+    <p class="empty-state" id="blogEmpty" style="text-align:center;color:var(--color-ink-muted)" hidden data-i18n="blog_empty"></p>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand" id="footerBrand">Marcos Cozatti</div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_phone">Telefone</h4>
+        <p id="footerPhone">—</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_email">E-mail</h4>
+        <p id="footerEmail">—</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_address">Endereço</h4>
+        <p id="footerAddress">—</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span id="footerCopy">&copy; 2026 Marcos Cozatti — <span data-i18n="footer_rights">Todos os direitos reservados.</span></span>
+      <a href="/admin/" style="opacity:.4">Admin</a>
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp-float" id="whatsappFloat" href="#" target="_blank" rel="noopener noreferrer" hidden aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.5 8.5 0 0 1-12.8 7.3L3 20l1.3-5a8.5 8.5 0 1 1 16.7-3.5z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 9.5c0 4 3 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+</a>
+
+<script type="module" src="js/config.js"></script>
+<script type="module" src="js/blog.js"></script>
+</body>
+</html>

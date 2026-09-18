@@ -1,0 +1,42 @@
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[redirects]]
+  from = "/admin"
+  to = "/admin/"
+  status = 301
+
+[[redirects]]
+  from = "/servicos"
+  to = "/area.html?slug=servicos"
+  status = 200
+
+[[redirects]]
+  from = "/fotografia"
+  to = "/area.html?slug=fotografia"
+  status = 200
+
+[[redirects]]
+  from = "/drones"
+  to = "/area.html?slug=drones"
+  status = 200
+
+[[redirects]]
+  from = "/videos"
+  to = "/videos.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog"
+  to = "/blog.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/:slug"
+  to = "/post.html?slug=:slug"
+  status = 200
