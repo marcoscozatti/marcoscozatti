@@ -66,6 +66,29 @@ function slugify(text) {
     .replace(/(^-|-$)/g, '');
 }
 
+/** Aceita um ID puro ou um link completo do YouTube (watch, youtu.be, embed,
+ * shorts — com ou sem parâmetros extras como &t=25s) e devolve só o ID. */
+function extractYoutubeId(input) {
+  const value = String(input || '').trim();
+  if (!value) return '';
+
+  try {
+    const url = new URL(value);
+    if (url.hostname.includes('youtu.be')) {
+      return url.pathname.split('/').filter(Boolean)[0] || '';
+    }
+    if (url.searchParams.get('v')) {
+      return url.searchParams.get('v');
+    }
+    const pathMatch = url.pathname.match(/\/(?:embed|shorts)\/([^/?&]+)/);
+    if (pathMatch) return pathMatch[1];
+  } catch (e) {
+    // não é uma URL válida — trata como ID puro (ou ID com lixo colado junto)
+  }
+
+  return value.split(/[&?#]/)[0];
+}
+
 /* =========================================================================
    Autenticação
    ========================================================================= */
@@ -692,8 +715,8 @@ function openVideoModal(video) {
   const bodyHtml = `
     <form id="videoForm">
       <div class="field full">
-        <label>ID do vídeo no YouTube (em youtube.com/watch?v=ABC123, o ID é ABC123)</label>
-        <input type="text" id="video_youtube_id" value="${escAttr(row.youtube_id || '')}" placeholder="ABC123xyz" required />
+        <label>Link ou ID do vídeo no YouTube (pode colar o link inteiro, tipo youtube.com/watch?v=ABC123 — o ID é extraído automaticamente)</label>
+        <input type="text" id="video_youtube_id" value="${escAttr(row.youtube_id || '')}" placeholder="https://youtube.com/watch?v=ABC123xyz" required />
       </div>
       ${langGroup('title', 'Título', 'input', row)}
       ${langGroup('description', 'Descrição curta', 'textarea', row)}
@@ -709,8 +732,10 @@ function openVideoModal(video) {
   openModal(isNew ? 'Novo vídeo' : 'Editar vídeo', bodyHtml, (body) => {
     body.querySelector('#videoForm').addEventListener('submit', async (e) => {
       e.preventDefault();
+      const youtubeId = extractYoutubeId(body.querySelector('#video_youtube_id').value);
+      if (!youtubeId) { toast('Não consegui identificar o ID do vídeo. Confira o link.', true); return; }
       const payload = {
-        youtube_id: body.querySelector('#video_youtube_id').value.trim(),
+        youtube_id: youtubeId,
         ...collectLangGroup(body, 'title'),
         ...collectLangGroup(body, 'description'),
         active: body.querySelector('#video_active').checked,
